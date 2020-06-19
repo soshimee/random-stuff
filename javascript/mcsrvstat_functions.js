@@ -14,6 +14,7 @@ function checkStatus(address, svport) {
             document.querySelector('.version').innerHTML = status.server.name;
             document.querySelector('.players').innerHTML = status.players.now+"/"+status.players.max;
             document.querySelector('.duration').innerHTML = status.duration/1000000000;
+            document.querySelector('.motd').innerHTML = "";
             document.querySelector('.motd').appendChild(status.motd.replaceColorCodes());
             document.querySelector('.favicon').src = status.favicon;
             $("#hider").show();
