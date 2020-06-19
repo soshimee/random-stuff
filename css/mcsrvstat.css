@@ -5,3 +5,7 @@ body{
 #port{
     width: 50px;
 }
+
+.motd{
+    background-color: black;
+}
