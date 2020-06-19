@@ -17,7 +17,11 @@ function checkStatus(address, svport) {
             document.querySelector('.motd').innerHTML = "";
             document.querySelector('.motd').appendChild(status.motd.replaceColorCodes());
             document.querySelector('.favicon').src = status.favicon;
-            $("#hider").show();
+            if (status.online) {
+                $("#hider").show();
+            } else {
+                $("#hider").hide();
+            }
         });
     });
 }
