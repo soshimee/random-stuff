@@ -2,32 +2,47 @@
 <html>
 	<head>
 		<title>Minecraft Server Status Checker - Random Stuff</title>
-		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
-		<script src="https://mcapi.us/scripts/minecraft.js"></script>
-		<script src="/javascript/mcsrvstat_functions.js"></script>
 		<link rel="stylesheet" type="text/css" href="/css/mcsrvstat.css">
+		<link rel="stylesheet" type="text/css" href="/css/style.css">
 	</head>
 	<body>
-		<h1>Minecraft Server Status Checker</h1>
-		<p><a href="/">To main website</a></p>
-		<hr>
-		<input type="text" id="address" name="address" placeholder="Address">
-		<input type="text" id="port" name="port" placeholder="Port">
-		<button type="button" onClick="checkStatus(document.getElementById('address').value), document.getElementById('port').value">Check!</button>
-		<p>Address: specifies the address of the server.</p>
-		<p>Port: specifies the port of the server, leave it blank if you do not know. <a href="javascript:toggleExtraPortInfo();">More info</a></p>
-		<p id="extraPortInfo">The port is the part after the ":" in the address.</p>
-		<div id="hider">
-			<hr>
-			<img class="favicon" src alt="The image will be displayed once the server status is checked."></img>
-			<p style="text-align: left;">Status: <span class="status"></span></p>
-			<p style="text-align: left;">Version: <span class="version"></span></p>
-			<p style="text-align: left;">Players: <span class="players"></span></p>
-			<p style="text-align: left;">MOTD: <span class="motd"></span></p>
-			<p style="text-align: left;"><span class="duration"></span> second(s)</p>
-			<script src="/javascript/mcsrvstat.js"></script>
+		<div class="title">
+			<h1>Minecraft Server Status Checker</h1>
+			<p><a href="/">To main website</a></p>
 		</div>
 		<hr>
+		<div class="mcsrvstat">
+			<form id="submit-form">
+				<input type="text" id="address" name="address" placeholder="Address" required>
+				<input type="text" id="port" name="port" placeholder="Port">
+				<button type="submit">Check!</button>
+			</form>
+			<p>Address: specifies the address of the server.</p>
+			<p>Port: specifies the port of the server, leave it blank if you do not know. <a href="javascript:toggleExtraPortInfo();">More info</a></p>
+			<p id="extraPortInfo">The port is the part after the ":" in the address.</p>
+			<div id="hider">
+				<hr>
+				<img class="favicon" src alt="The image will be displayed once the server status is checked."></img>
+				<p>Status: <span class="status"></span></p>
+				<p>Version: <span class="version"></span></p>
+				<p>Players: <span class="players"></span></p>
+				<p>MOTD: <span class="motd"></span></p>
+				<p><span class="duration"></span> second(s)</p>
+			</div>
+		</div>
+		<hr>
+			<div class="log">
+				<p><a href="javascript:clearlog();">Clear log</a></p>
+				<code>
+					<span id="log"></span>
+				</code>
+				<hr>
+			</div>
 		<p><sub>Thanks to <a href="https://mcapi.us/">MCAPI</a> for providing free minecraft server status API.</sub></p>
+		
+		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
+		<script src="/javascript/libraries/minecraftColor.js"></script>
+		<script src="https://mcapi.us/scripts/minecraft.js"></script>
+		<script src="/javascript/mcsrvstat.js"></script>
 	</body>
 </html>
