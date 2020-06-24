@@ -7,36 +7,33 @@ $(".log").hide();
 var extraPortInfo = false;
 
 function clearlog() {
-    document.querySelector("#log").innerHTML = "Log: Log cleared.";
+    $("#log").text("Log: Log cleared.");
 }
 
 function logError() {
     $(".log").show();
-    var errorLog = document.createElement("p");
-    errorLog.innerHTML = "Log: <span class='error'>Error: Could not get server status, check the server address.</span>";
-    document.querySelector("#log").appendChild(errorLog);
-    return;
+    var errorLog = $("<p>Log: <span class='error'>Error: Could not get server status, check the server address.</span></p>");
+    $("#log").append(errorLog);
 };
 
 function logSuccess() {
-    let address = document.getElementById('address').value;
-    let svport = document.getElementById('port').value;
+    let address = $('#address').val();
+    let svport = $('#port').val();
+    var successLog;
     $(".log").show();
-    var successLog = document.createElement("p");
     if (svport == "") {
-        successLog.innerHTML = "Log: <span class='success'>Success: Successfully checked server status for "+address+".</span>";
+        successLog = $("<p>Log: <span class='success'>Success: Successfully checked server status for "+address+".</span></p>");
     } else {
-        successLog.innerHTML = "Log: <span class='success'>Success: Successfully checked server status for "+address+":"+svport+".</span>";
+        successLog = $("Log: <span class='success'>Success: Successfully checked server status for "+address+":"+svport+".</span>");
     }
-    document.querySelector("#log").appendChild(successLog);
-    return;
+    $("#log").append(successLog);
 };
 
 $(function () {
     $('#submit-form').on('submit', function(e) {
         e.preventDefault();     
-        let address = document.getElementById('address').value;
-        let svport = document.getElementById('port').value;
+        let address = $('#address').val();
+        let svport = $('#port').val();
 
     MinecraftAPI.getServerStatus(address, {
         port: svport
@@ -44,23 +41,19 @@ $(function () {
         if (err) {
             $("#hider").hide();
             logError();
-            return document.querySelector('.status').innerHTML = 'Error';
         }
-        document.querySelector('.status').innerHTML = status.online ? 'Online' : 'Offline';
-        document.querySelector('.version').innerHTML = status.server.name;
-        document.querySelector('.players').innerHTML = status.players.now+"/"+status.players.max;
-        document.querySelector('.duration').innerHTML = status.duration/1000000000;
-        document.querySelector('.motd').innerHTML = "";
-        document.querySelector('.motd').appendChild(status.motd.replaceColorCodes());
-        document.querySelector('.favicon').src = status.favicon;
+        $('.status').text(status.online ? 'Online' : 'Offline');
+        $('.version').text(status.server.name);
+        $('.players').text(status.players.now+"/"+status.players.max);
+        $('.duration').text(status.duration/1000000000);
+        $('.motd').html(status.motd.replaceColorCodes());
+        $('.favicon').attr("src", status.favicon);
 
         if (status.online) {
             logSuccess();
             $("#hider").show();
-            return;
         } else {
             $("#hider").hide();
-            return;
         }
     });
 })});
