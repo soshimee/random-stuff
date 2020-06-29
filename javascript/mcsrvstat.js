@@ -38,20 +38,18 @@ $(function () {
     MinecraftAPI.getServerStatus(address, {
         port: svport
     }, function(err, status) {
-        if (err || !status.online) {
-            $("#hider").hide();
-            logError();
-        }
         $('.status').text(status.online ? 'Online' : 'Offline');
         $('.version').text(status.server.name);
         $('.players').text(status.players.now+"/"+status.players.max);
         $('.duration').text(status.duration/1000000000);
         $('.motd').html(status.motd.replaceColorCodes());
         $('.favicon').attr("src", status.favicon);
-
         if (status.online) {
             logSuccess();
             $("#hider").show();
+        } else if (err || !status.online) {
+            $("#hider").hide();
+            logError();
         }
     });
 })});
