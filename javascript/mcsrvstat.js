@@ -38,7 +38,7 @@ $(function () {
     MinecraftAPI.getServerStatus(address, {
         port: svport
     }, function(err, status) {
-        if (err) {
+        if (err || !status.online) {
             $("#hider").hide();
             logError();
         }
@@ -52,8 +52,6 @@ $(function () {
         if (status.online) {
             logSuccess();
             $("#hider").show();
-        } else {
-            $("#hider").hide();
         }
     });
 })});
