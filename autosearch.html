@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>AutoSearch - Random Stuff</title>
+		<meta name="description" content="AutoSearch - Random Stuff">
+        <meta name="keywords" content="random, stuff, soshimee, keyword, google, ">
+        <meta name="author" content="soshimee">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!-- <link rel="stylesheet" type="text/css" href=""> -->
+		<link rel="stylesheet" type="text/css" href="/css/style.css">
+	</head>
+	<body>
+		<div class="title">
+			<h1>AutoSearch</h1>
+			<p><a href="/">To main website</a></p>
+		</div>
+		<hr>
+		<div class="autosearch">
+			<form id="submit-form">
+                <input type="text" id="keyword" name="keyword" placeholder="Keyword" required>
+                <br>
+                <input type="radio" id="google" name="engine" value="google">
+                <label for="google">Google</label><br>
+                <input type="radio" id="bing" name="engine" value="bing">
+                <label for="google">Bing</label><br>
+				<button type="submit">Get link!</button>
+			</form>
+            <p>Keyword: specifies the search keyword.</p>
+            <p>Search engine: specifies the search engine to use.</p>
+			<div id="hider">
+				<hr>
+				<p id="url"></p>
+			</div>
+		</div>
+		<hr>
+		<p><sub>Thanks to <a href="https://.../">...</a> for providing ... API.</sub></p>
+		
+		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
+		<script src="/javascript/autosearch.js"></script>
+	</body>
+</html>
