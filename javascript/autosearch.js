@@ -8,9 +8,9 @@ $(function () {
         let keyword = $("#keyword").val();
         let engine = $(":input:radio[name=engine]:checked").val();
 
+        keyword = keyword.replace(/%/gi, "%25");
         keyword = keyword.replace(/ /gi, "%20");
         keyword = keyword.replace(/#/gi, "%23");
-        keyword = keyword.replace(/%/gi, "%25");
 
         if (engine == "google") {
             keyword = "https://google.com/search?q="+keyword;
