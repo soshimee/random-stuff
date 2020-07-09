@@ -42,6 +42,7 @@ $(function () {
             $("#hider").hide();
             logError();
         } else {
+            $('.favicon').attr("src", "");
             $('.status').text(status.online ? 'Online' : 'Offline');
             $('.version').text(status.server.name);
             $('.players').text(status.players.now+"/"+status.players.max);
