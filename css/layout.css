@@ -4,10 +4,19 @@
     box-sizing: border-box;
 }
 
-.square{
-    width: 200px;
-    height: 200px;
-    background-color: hotpink;
-    padding: 10px;
-    margin: 10px;
+.flex-container{
+    
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgba(138, 255, 247, 0.796);
+}
+
+.flex-item{
+    height: 100px;
+    width: 100px;
+    background-color: rgb(162, 191, 132);
+    border: 10px solid lawngreen;
+    border-radius: 10px;
 }
