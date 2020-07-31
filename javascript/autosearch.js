@@ -2,8 +2,8 @@
 $("#hider").hide();
 
 //Functions
-$(function () {
-    $('#submit-form').on('submit', function(e) {
+$(() => {
+    $('#submit-form').on('submit', (e) => {
         e.preventDefault();
         let keyword = $("#keyword").val();
         let engine = $(":input:radio[name=engine]:checked").val();
