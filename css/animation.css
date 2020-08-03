@@ -1,31 +1,57 @@
 html, body {
-    width: 100vw;
-    height: 100vh;
+	width: 100vw;
+	height: 100vh;
+	margin: 0;
+	padding: 0;
 }
 
-* {
-    margin: 0px;
-    padding: 0px;
+table {
+	width: 100vw;
+	height: 10vw;
+	text-align: center;
+	border-collapse: collapse;
+	font-size: 3vw;
 }
 
-body {
-    background-image: linear-gradient(to bottom right, rgb(255, 58, 58), rgb(53, 50, 255));
+td {
+	margin: 0;
+	padding: 0;
+	transition: font-size 1s, width 1s;
 }
 
-.fill {
-    display: inline-block;
-    height: 100px;
-    width: 100px;
-    background: white;
-    transition: width 1s, height 1s;
-    overflow: hidden;
+td:hover {
+	font-size: 6vw;
 }
 
-.fill:hover {
-    height: 100%;
-    width: 100%;
+#first {
+	background-color: red;
 }
 
-.centered {
-    text-align: center;
+#second {
+	background-color: orange;
+}
+
+#third {
+	background-color: yellow;
+}
+
+#fourth {
+	background-color: greenyellow;
+}
+
+#fifth {
+	background-color: green;
+}
+
+#sixth {
+	background-color: blue;
+}
+
+#seventh {
+	background-color: blueviolet;
+}
+
+#eighth {
+	background-color: black;
+	color: white;
 }

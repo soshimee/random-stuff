@@ -3,7 +3,6 @@ $.getJSON("https://api.waqi.info/feed/seoul/?token=57c2c3a4f5e324473bfd71863c0ad
 	$("#seoul__pm25").html(data.data.iaqi.pm25.v);
 	$("#seoul__h").html(data.data.iaqi.h.v);
 	$("#seoul__t").html(data.data.iaqi.t.v);
-	console.log(data);
 });
 
 // Okinawa
