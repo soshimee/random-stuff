@@ -8,7 +8,7 @@
 	}
 
 	25% {
-		margin-left: 100px;
+		margin-left: 200px;
 		margin-top: 0;
 		background-color: blue;
 		width: 200px;
@@ -16,8 +16,8 @@
 	}
 
 	50% {
-		margin-left: 100px;
-		margin-top: 100px;
+		margin-left: 200px;
+		margin-top: 200px;
 		background-color: green;
 		width: 200px;
 		height: 200px;
@@ -25,10 +25,53 @@
 
 	75% {
 		margin-left: 0;
-		margin-top: 100px;
+		margin-top: 200px;
 		background-color: yellow;
 		width: 100px;
 		height: 200px;
+	}
+
+	100% {
+		margin-left: 0;
+		margin-top: 0;
+		background-color: red;
+		width: 100px;
+		height: 100px;
+	}
+}
+
+@keyframes square-reverse {
+	0% {
+		margin-left: 0;
+		margin-top: 0;
+		background-color: red;
+		width: 100px;
+		height: 100px;
+	}
+
+	25% {
+		
+		margin-left: 0;
+		margin-top: 200px;
+		background-color: yellow;
+		width: 100px;
+		height: 200px;
+	}
+
+	50% {
+		margin-left: 200px;
+		margin-top: 200px;
+		background-color: green;
+		width: 200px;
+		height: 200px;
+	}
+
+	75% {
+		margin-left: 200px;
+		margin-top: 0;
+		background-color: blue;
+		width: 200px;
+		height: 100px;
 	}
 
 	100% {
@@ -45,6 +88,11 @@ html, body {
 	padding: 0;
 }
 
-#square {
-	animation: square 4s infinite;
+.buttons {
+	position: absolute;
+	top: 400px;
+}
+
+#normal {
+	left: 100px;
 }
