@@ -10,17 +10,18 @@ table {
 	height: 10vw;
 	text-align: center;
 	border-collapse: collapse;
-	font-size: 3vw;
+	font-size: 4vw;
 }
 
 td {
 	margin: 0;
 	padding: 0;
-	transition: font-size 1s, width 1s;
+	width: 12.5vw;
+	transition: width 1s;
 }
 
 td:hover {
-	font-size: 6vw;
+	width: 20vw;
 }
 
 #first {
