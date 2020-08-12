@@ -1,58 +1,31 @@
 html, body {
-	width: 100vw;
-	height: 100vh;
-	margin: 0;
-	padding: 0;
+    width: 100vw;
+    height: 100vh;
 }
 
-table {
-	width: 100vw;
-	height: 10vw;
-	text-align: center;
-	border-collapse: collapse;
-	font-size: 4vw;
+* {
+    margin: 0px;
+    padding: 0px;
 }
 
-td {
-	margin: 0;
-	padding: 0;
-	width: 12.5vw;
-	transition: width 1s;
+body {
+    background-image: linear-gradient(to bottom right, rgb(255, 58, 58), rgb(53, 50, 255));
 }
 
-td:hover {
-	width: 20vw;
+.fill {
+    display: inline-block;
+    height: 100px;
+    width: 100px;
+    background: white;
+    transition: width 1s, height 1s;
+    overflow: hidden;
 }
 
-#first {
-	background-color: red;
+.fill:hover {
+    height: 100%;
+    width: 100%;
 }
 
-#second {
-	background-color: orange;
-}
-
-#third {
-	background-color: yellow;
-}
-
-#fourth {
-	background-color: greenyellow;
-}
-
-#fifth {
-	background-color: green;
-}
-
-#sixth {
-	background-color: blue;
-}
-
-#seventh {
-	background-color: blueviolet;
-}
-
-#eighth {
-	background-color: black;
-	color: white;
+.centered {
+    text-align: center;
 }

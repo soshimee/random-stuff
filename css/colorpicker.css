@@ -1,0 +1,14 @@
+* {
+	font-family: sans-serif;
+	transition: all 1s;
+}
+
+html, body {
+	margin: 0;
+	padding: 0;
+	text-align: center;
+}
+
+.results {
+	background-color: white;
+}
