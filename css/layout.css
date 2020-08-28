@@ -131,7 +131,7 @@ footer {
 /* START BLOCK WITH COLUMN */
 .columns {
     padding: 50px 0 30px 0;
-    background-color: #FFA500;
+    background-color: red;
 }
 
 .columns__title {
