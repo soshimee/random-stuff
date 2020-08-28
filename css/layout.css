@@ -7,7 +7,7 @@
 html, body {
     height: 100%;
     width: 100%;
-    font-family: "Impact", "Helvetica", sans-serif;
+    font-family: "Helvetica", sans-serif;
 }
 
 .wrapper {
@@ -131,7 +131,7 @@ footer {
 /* START BLOCK WITH COLUMN */
 .columns {
     padding: 50px 0 30px 0;
-    background-color: gray;
+    background-color: lightgray;
 }
 
 .columns__title {
