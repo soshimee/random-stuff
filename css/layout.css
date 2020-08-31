@@ -1,79 +1,79 @@
 * {
-    padding: 0px;
-    margin: 0px;
-    box-sizing: border-box;
+	padding: 0px;
+	margin: 0px;
+	box-sizing: border-box;
 }
 
 html, body {
-    height: 100%;
-    width: 100%;
-    font-family: "Helvetica", sans-serif;
+	height: 100%;
+	width: 100%;
+	font-family: "Helvetica", sans-serif;
 }
 
 .wrapper {
-    min-height: 100%;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
+	min-height: 100%;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
 }
 
 .content {
-    flex: 1 1 auto;
+	flex: 1 1 auto;
 }
 
 .container {
-    max-width: 1180px;
-    margin: 0px auto;
+	max-width: 1180px;
+	margin: 0px auto;
 }
 
 footer {
-    background-color: hsl(217.6, 100%, 58%);
+	background-color: hsl(217.6, 100%, 58%);
 }
 
 .footer__row {
-    display: flex;
-    height: 60px;
-    justify-content: center;
-    align-items: center;
+	display: flex;
+	height: 60px;
+	justify-content: center;
+	align-items: center;
 }
 
 .footer__text {
-    font-size: 20px;
-    letter-spacing: .3px;
+	font-size: 20px;
+	letter-spacing: .3px;
 }
 
 .top {
-    background-color: #2196f3;
+	background-color: #2196f3;
 }
 
 .top__row {
-    display: flex;
-    justify-content: space-between;
-    padding: 50px 0;
+	display: flex;
+	justify-content: space-between;
+	padding: 50px 0;
 }
 
 .top__body {
-    color: #fff;
-    padding-bottom: 40px;
+	color: #fff;
+	padding-bottom: 40px;
 }
 
 .top__title {
-    font-size: 60px;
-    margin-bottom: 40px;
+	font-size: 60px;
+	margin-bottom: 40px;
 }
 
 .top__image img {
-    max-width: 450px;
+	max-width: 450px;
 }
 
 .top__list {
-    margin-left: 30px;
+	margin-left: 30px;
 }
 
 .top__list li {
-    font-size: 20px;
-    list-style: none;
-    padding-bottom: 20px;
+	font-size: 20px;
+	list-style: none;
+	padding-bottom: 20px;
 }
 
 .wrap {
@@ -87,7 +87,7 @@ footer {
 	padding: 0px;
 	font-size: 10px;
 	border: 10px solid green;
-    border-radius: 10px;
+	border-radius: 10px;
 }
 
 .item-two {
@@ -98,76 +98,133 @@ footer {
 
 /* START WHAT BLOCK */
 .title {
-    color: #445161;
-    font-size: 30px;
-    line-height: 36px;
+	color: #445161;
+	font-size: 30px;
+	line-height: 36px;
 }
 
 .what__row {
-    display: flex;
-    padding: 50px 0;
+	display: flex;
+	padding: 50px 0;
 }
 
 .what__img {
-    flex: 0 0 430px;
+	flex: 0 0 430px;
 }
 
 .what__img img {
-    max-width: 100%;
+	max-width: 100%;
 }
 
 .what__body {
-    padding-left: 40px;
+	padding-left: 40px;
 }
 
 .what__title {
-    margin-bottom: 35px;
+	margin-bottom: 35px;
 }
 
 .what__text p {
-    margin-bottom: 20px;
+	margin-bottom: 20px;
 }
 /* END WHAT BLOCK */
 /* START BLOCK WITH COLUMN */
 .columns {
-    padding: 50px 0 30px 0;
-    background-color: lightgreen;
+	padding: 50px 0 30px 0;
+	background-color: lightgreen;
 }
 
 .columns__title {
-    text-align: center;
-    margin-bottom: 30px;
+	text-align: center;
+	margin-bottom: 30px;
 }
 
 .columns__row {
-    display: flex;
-    flex-wrap: wrap;
-    margin: 0px -8px;
+	display: flex;
+	flex-wrap: wrap;
+	margin: 0px -8px;
 }
 
 .columns__column {
-    flex: 0 1 50%;
-    padding: 0 8px;
-    margin-bottom: 30px;
+	flex: 0 1 50%;
+	padding: 0 8px;
+	margin-bottom: 30px;
 }
 
 .item__row {
-    display: flex;
+	display: flex;
 }
 
 .item__img {
-    flex: 0 0 200px;
+	flex: 0 0 200px;
 }
 
 .item__img img {
-    max-width: 100%;
+	max-width: 100%;
 }
 
 .item__body {
-    margin-left: 20px;
+	margin-left: 20px;
 }
 
 .item__title {
-    margin-bottom: 10px;
+	margin-bottom: 10px;
 }
 /* END BLOCK WITH COLUMN */
+
+/* START VERTICAL FLEX */
+
+.vertical {
+	margin: 25px;
+}
+
+.vertical__title {
+	text-align: center;
+}
+
+.vertical__row {
+	display: flex;
+}
+
+.vertical__col {
+	background-color: rgb(0, 168, 168);
+	margin: 25px 25px;
+	padding: 10px;
+	border-radius: 10px;
+}
+
+.vertical__label, .vertical__subtitle {
+	text-align: center;
+}
+
+.vertical__subtitle {
+	margin-bottom: 5px;
+}
+
+.vertical__label {
+	color: rgb(0, 168, 168);
+	background-color: white;
+	padding: 10px;
+	margin: 5px -9px;
+}
+
+.vertical__link {
+	text-align: center;
+	background-color: white;
+	border-radius: 5px;
+	padding: 10px;
+	margin-top: 5px;
+}
+
+.vertical__link a {
+	color: rgb(0, 168, 168);
+	text-decoration: none;
+}
+
+.vertical__text {
+	margin: 5px 0;
+	height: 300px;
+    overflow: auto;
+}
+
+/* END VERTICAL FLEX */
