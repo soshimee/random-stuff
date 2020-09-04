@@ -1,0 +1,22 @@
+body {
+	background-color: #000;
+	color: #555;
+	font-size: xx-large;
+}
+
+::-webkit-scrollbar {
+	width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+	background: linear-gradient(transparent, blue, transparent);
+	border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: linear-gradient(transparent, red, transparent);
+}
+
+::-webkit-scrollbar-thumb:active {
+	background: linear-gradient(transparent, green, transparent);
+}
