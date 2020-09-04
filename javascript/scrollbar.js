@@ -16,7 +16,7 @@ $(window).scroll(function(event){
 
 var running;
 setInterval(() => {
-	if (lastScrollTop = st) {
+	if (lastScrollTop = st || st == 0) {
 		addRule("::-webkit-scrollbar-thumb", "background: linear-gradient(transparent, blue, transparent)");
 		addRule("::-webkit-scrollbar-thumb:hover", "background: linear-gradient(transparent, red, transparent)");
 		addRule("::-webkit-scrollbar-thumb:active", "background: linear-gradient(transparent, green, transparent)");
