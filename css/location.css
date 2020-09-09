@@ -1,0 +1,16 @@
+iframe {
+	border: 0;
+	width: 500px;
+	height: 500px;
+}
+
+.button {
+	border: gray dotted 1px;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+.textbox {
+	border: gray dotted 1px;
+	border-radius: 5px;
+}
