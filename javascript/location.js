@@ -1,5 +1,5 @@
 function isFloat(str) {
-	return /(^\d+\.\d+$)|(^\d+$)/.test(str);
+	return /^-?\d+(\.\d+)?$/.test(str);
 }
 
 $("#search").click(() => {
