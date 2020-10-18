@@ -1,3 +1,3 @@
 if (location.hostname == "random-stuff.netlify.app") {
-	location = `https://random-stuff-soshimee.surge.sh${location.pathname}`;
+	location.replace(`https://random-stuff-soshimee.surge.sh${location.pathname}`);
 }
