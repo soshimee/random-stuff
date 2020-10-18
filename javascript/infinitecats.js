@@ -1,6 +1,6 @@
 if (location.hostname == "random-stuff.netlify.app") {
 	// Sadly, Random.cat is still in HTTP.
-	location = "http://random-stuff-soshimee.surge.sh/";
+	location = "http://random-stuff-soshimee.surge.sh/infinitecats.html";
 }
 
 function verticalScrollPresent() {
