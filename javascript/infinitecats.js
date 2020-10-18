@@ -1,4 +1,4 @@
-if (location.hostname == "random-stuff.netlify.app") {
+if (location.protocol == "https:") {
 	// Sadly, Random.cat is still in HTTP.
 	location = "http://random-stuff-soshimee.surge.sh/infinitecats.html";
 }
