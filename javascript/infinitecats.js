@@ -1,5 +1,6 @@
 if (location.protocol == "https:") {
 	// Sadly, Random.cat is still in HTTP.
+	alert("HTTPS protocol is unsupported for this page, redirecting you to the HTTP version...");
 	location = "http://random-stuff-soshimee.surge.sh/infinitecats.html";
 }
 
