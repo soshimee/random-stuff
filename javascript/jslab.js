@@ -12,3 +12,17 @@ function isPrime(int) {
 
 	return isPrime;
 }
+
+function maxDiff(arr) {
+	arr.sort();
+	return arr[arr.length-1]-arr[0];
+}
+
+function whatCentury(year) {
+	var centuryNum = (parseInt(year.toString().slice(0, 2))+1).toString();
+	var centuryLastNum = centuryNum.slice(1, 2);
+	if (centuryLastNum == "1") return centuryNum+"st";
+	if (centuryLastNum == "2") return centuryNum+"nd";
+	if (centuryLastNum == "3") return centuryNum+"rd";
+	return centuryNum+"th";
+}
