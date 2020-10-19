@@ -1,18 +1,20 @@
+var id = 0;
+
 function verticalScrollPresent() {
 	return (document.documentElement.scrollHeight !== document.documentElement.clientHeight);
 }
 
-function appendCat() {
-	$(".cats").append("<img src=\"resources/infinitecats/loadingcat.jpg\" alt=\"Loading...\" class=\"cat__image loading\">");
-	$(".cats").append("<br class=\"loading\">");
+function appendCat(id) {
+	$(".cats").append(`<div class="cat__image__container__${id}">`)
+	$(`.cat__image__container__${id}`).append(`<img src="resources/infinitecats/loadingcat.jpg" alt="Loading..." class="cat__image loading__${id}">`);
+	$(`.cat__image__container__${id}`).append(`<br class="loading__${id}">`);
 	$.getJSON("https://aws.random.cat/meow", data => {
-		$(".cats").append(`<img src="${data.file}" alt="Another cat!" class="cat__image latest">`);
-		$(".cats").append("<br>");
-		$(".latest").hide();
-		$(".latest").imagesLoaded(() => {
-			$(".latest").show();
-			$(".latest").removeClass("latest");
-			$(".loading").remove();
+		$(`.cat__image__container__${id}`).append(`<img src="${data.file}" alt="Another cat!" class="cat__image latest__${id}">`);
+		$(`.latest__${id}`).hide();
+		$(`.latest__${id}`).imagesLoaded(() => {
+			$(`.latest__${id}`).show();
+			$(`.latest__${id}`).removeClass(`latest__${id}`);
+			$(`.loading__${id}`).remove();
 		});
 	});
 }
@@ -20,19 +22,29 @@ function appendCat() {
 function reqappendCat() {
 	sb = $("body").height() - $(window).scrollTop();
 	if (sb < $(window).height()+1000) {
-		appendCat();
+		appendCat(id);
+		id++;
 	}
 }
 
-
-var startInterval = setInterval(() => {
-	if (verticalScrollPresent()) {
-		clearInterval(startInterval);
-	} else {
-		appendCat();
-	}
+var reqAppendCatInterval = setInterval(() => {
+	reqappendCat();
 }, 100);
 
-$(window).scroll(() => {
-	reqappendCat();
-});
+var imageSizeInterval = setInterval(() => {
+	if (innerWidth > innerHeight) {
+		$(".style__portrait").remove();
+		$("head").append(`<style class="style__landscape">
+			.cat__image {
+				height: 50vh;
+			}
+		</style>`);
+	} else {
+		$(".style__landscape").remove();
+		$("head").append(`<style class="style__portrait">
+			.cat__image {
+				width: 50vw;
+			}
+		</style>`);
+	}
+}, 100);
