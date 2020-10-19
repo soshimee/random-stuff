@@ -29,6 +29,7 @@ var reqAppendCatInterval = setInterval(() => {
 var imageSizeInterval = setInterval(() => {
 	if (innerWidth > innerHeight) {
 		$(".style__portrait").remove();
+		$(".style__landscape").remove();
 		$("head").append(`<style class="style__landscape">
 			.cat__image {
 				height: 50vh;
@@ -36,6 +37,7 @@ var imageSizeInterval = setInterval(() => {
 		</style>`);
 	} else {
 		$(".style__landscape").remove();
+		$(".style__portrait").remove();
 		$("head").append(`<style class="style__portrait">
 			.cat__image {
 				width: 50vw;
