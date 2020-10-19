@@ -1,19 +1,14 @@
 var id = 0;
 
-function verticalScrollPresent() {
-	return (document.documentElement.scrollHeight !== document.documentElement.clientHeight);
-}
-
 function appendCat(id) {
 	$(".cats").append(`<div class="cat__image__container__${id}">`)
 	$(`.cat__image__container__${id}`).append(`<img src="resources/infinitecats/loadingcat.jpg" alt="Loading..." class="cat__image loading__${id}">`);
-	$(`.cat__image__container__${id}`).append(`<br class="loading__${id}">`);
 	$.getJSON("https://aws.random.cat/meow", data => {
-		$(`.cat__image__container__${id}`).append(`<img src="${data.file}" alt="Another cat!" class="cat__image latest__${id}">`);
-		$(`.latest__${id}`).hide();
-		$(`.latest__${id}`).imagesLoaded(() => {
-			$(`.latest__${id}`).show();
-			$(`.latest__${id}`).removeClass(`latest__${id}`);
+		$(`.cat__image__container__${id}`).append(`<img src="${data.file}" alt="Another cat!" class="cat__image cat__image__${id}">`);
+		$(`.cat__image__${id}`).hide();
+		$(`.cat__image__${id}`).imagesLoaded(() => {
+			$(`.cat__image__${id}`).show();
+			$(`.cat__image__${id}`).removeClass(`latest__${id}`);
 			$(`.loading__${id}`).remove();
 		});
 	});
