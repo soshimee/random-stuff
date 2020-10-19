@@ -21,6 +21,7 @@ function maxDiff(arr) {
 function whatCentury(year) {
 	var centuryNum = (parseInt(year.toString().slice(0, 2))+1).toString();
 	var centuryLastNum = centuryNum.slice(1, 2);
+	if (centuryNum.startsWith("1")) return centuryNum+"th";
 	if (centuryLastNum == "1") return centuryNum+"st";
 	if (centuryLastNum == "2") return centuryNum+"nd";
 	if (centuryLastNum == "3") return centuryNum+"rd";
