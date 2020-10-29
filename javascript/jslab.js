@@ -27,3 +27,30 @@ function whatCentury(year) {
 	if (centuryLastNum == "3") return centuryNum+"rd";
 	return centuryNum+"th";
 }
+
+function greetCurring(name, gender, age) {
+	if (age > 24) gender == "female" ? msmr = "Ms" : msmr = "Mr";
+	return `Hello ${msmr}. ${name}`;
+}
+
+function searchArray(arr, text) {
+	return arr.filter(x => x.match(text));
+}
+
+function humanReadable(timeInSeconds) {
+	var t = new Date(1970, 0, 1);
+	t.setSeconds(timeInSeconds);
+	return ((parseInt(t.toString().match(/\d{2}/).toString())-1)*24+parseInt(t.toString().match(/\d{2}:\d{2}:\d{2}/).toString().match(/\d{2}/).toString())) + t.toString().match(/\d{2}:\d{2}:\d{2}/).toString().slice(2, t.toString().match(/\d{2}:\d{2}:\d{2}/).toString().length);
+}
+
+function humanReadable(s) {
+	m = Math.floor(s/60);
+	h = Math.floor(m/60);
+	s %= 60;
+	m %= 60;
+	var vars = [h, m, s];
+	if (!h.toString().match(/../)) h = "0"+h;
+	if (!m.toString().match(/../)) m = "0"+m;
+	if (!s.toString().match(/../)) s = "0"+s;
+	console.log(`${h}:${m}:${s}`);
+}
