@@ -8,7 +8,7 @@ function getRandomInt(min, max) {
 
 function appendCat(id) {
 	$(".cats").append(`<div class="cat__image__container__${id}">`);
-	$(`.cat__image__container__${id}`).append(`<img src="resources/infinitecats/loadingcat/images/${getRandomInt(0, 2)}.jpg" alt="Loading..." class="cat__image loading__${id}">`);
+	$(`.cat__image__container__${id}`).append(`<img src="resources/infinitecats/images/loadingcat${getRandomInt(0, 2)}.jpg" alt="Loading..." class="cat__image loading__${id}">`);
 	$.getJSON("https://aws.random.cat/meow", data => {
 		$(`.cat__image__container__${id}`).append(`<img src="${data.file}" alt="Another cat!" class="cat__image cat__image__${id}">`);
 		$(`.cat__image__${id}`).hide();
