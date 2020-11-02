@@ -54,3 +54,17 @@ function humanReadable(s) {
 	if (!s.toString().match(/../)) s = "0"+s;
 	console.log(`${h}:${m}:${s}`);
 }
+
+function convertHexStringToRgb(hex) {
+	if (hex.match(/^[\da-f]{6}$/i)) var i = 0;
+	else if (hex.match(/^#[\da-f]{6}$/i)) var i = 1;
+	else return;
+	var r = parseInt(`0x${hex.slice(i, i += 2)}`);
+	var g = parseInt(`0x${hex.slice(i, i += 2)}`);
+	var b = parseInt(`0x${hex.slice(i, i += 2)}`);
+	return {
+		"r": r,
+		"g": g,
+		"b": b
+	};
+}
