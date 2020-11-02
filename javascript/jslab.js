@@ -68,3 +68,12 @@ function convertHexStringToRgb(hex) {
 		"b": b
 	};
 }
+
+function convertHexStringToRgb(hex) {
+	var rgb = /([\da-f]{2})([\da-f]{2})([\da-f]{2})/i.exec(hex);
+	return {
+		"r": parseInt(`0x${rgb[1]}`),
+		"g": parseInt(`0x${rgb[2]}`),
+		"b": parseInt(`0x${rgb[3]}`)
+	};
+}
