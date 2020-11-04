@@ -77,3 +77,11 @@ function convertHexStringToRgb(hex) {
 		"b": parseInt(`0x${rgb[3]}`)
 	};
 }
+
+function removeConsecutiveCharacters(arr) {
+	return arr.map(str => {
+		return str.split("").filter((item, pos, arr) => {
+			return !pos || item !== arr[pos-1];
+		}).join("");
+	});
+}
