@@ -17,6 +17,7 @@ function start() {
 			score++;
 			$("td").off("click");
 			$(".score").html(score);
+			$('body').append('<embed id="embed_player" src="resources/wamgame/sfx/buttonclick.wav" autostart="true" hidden="true"></embed>');
 		});
 	}, $(".speed").val());
 
@@ -53,4 +54,8 @@ $(".settings__button").click(() => {
 $(".reset__settings").click(() => {
 	$(".timelimit").val("60");
 	$(".speed").val("500");
+});
+
+$("button").click(() => {
+	$('body').append('<embed id="embed_player" src="resources/wamgame/sfx/buttonclick.wav" autostart="true" hidden="true"></embed>');
 });
