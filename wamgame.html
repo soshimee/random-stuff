@@ -6,35 +6,22 @@
 	</head>
 	<body>
 		<div class="section menu">
+			<p class="menu__title">WamGame</p>
+			<p>v1.1</p>
 			<button class="start__button">Start</button>
 			<button class="settings__button">Settings</button>
 		</div>
 		<div class="section settings">
 			<p>Time Limit: <input type="number" class="timelimit" value="60"></p>
 			<p>Speed (ms): <input type="number" class="speed" value="500"></p>
+			<p>Size: <input type="number" class="size__x" value="3"> &times; <input type="number" class="size__y" value="3"></p>
 			<button class="reset__settings">Reset</button>
 			<button class="menu__button">Go Back</button>
 		</div>
 		<div class="section game">
 			<p>Score: <span class="score"></span></p>
 			<p>Time Left: <span class="timeleft"></span>s</p>
-			<table>
-				<tr>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-			</table>
+			<table class="game__display"></table>
 		</div>
 		<div class="section gameover">
 			<p class="gameover__title">Game Over!</p>
