@@ -94,16 +94,18 @@ function returnWhateverArrayItIs(str) {
 
 function inverseHex(arrStr) {
 	var a = x => {
-		return x.split("").map(y => {
-			return (15 - parseInt(`0x${y}`)).toString(16);
-		}).join("");
-	};
+		if (x.match(/^#?[\da-f]{3}$/i)) {
+			x = x.split("").map(y => y.repeat(2)).join("");
+		} else if (!x.match(/^#?[\da-f]{6}$/i)) {
+			return "";
+		}
+		x = x.replace(/#/g, "");
+		return "#"+x.split("").map(y => (15 - parseInt(`0x${y}`)).toString(16)).join("");
+	}
 
 	if (Array.isArray(arrStr)) {
-		return arrStr.map(x => {
-			return a(x);
-		});
-	} else {
-		return a(arrStr);
+		return arrStr.map(x => a(x)).filter(x => x).join() ? arrStr.map(x => a(x)).filter(x => x) : undefined;
+	} else if (typeof arrStr == "string") {
+		return a(arrStr) ? a(arrStr) : undefined;
 	}
 }

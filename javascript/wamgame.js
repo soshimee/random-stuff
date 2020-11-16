@@ -5,6 +5,8 @@ function start() {
 	var score = 0;
 	var timeleft = $(".timelimit").val();
 
+	$(".game__display").html("");
+
 	for (i=0; i<$(".size__y").val(); i++) {
 		$(".game__display").append("<tr class=\"game__display__row\"></tr>");
 	}
