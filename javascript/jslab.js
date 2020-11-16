@@ -90,4 +90,18 @@ function returnWhateverArrayItIs(str) {
 	return str.split("").filter((item, pos, arr) => {
 		return !pos || item !== arr[pos-1];
 	});
+function inverseHex(arrStr) {
+	var a = x => {
+		return x.split("").map(y => {
+			return (15 - parseInt(`0x${y}`)).toString(16);
+		}).join("");
+	};
+
+	if (Array.isArray(arrStr)) {
+		return arrStr.map(x => {
+			return a(x);
+		});
+	} else {
+		return a(arrStr);
+	}
 }
