@@ -85,3 +85,9 @@ function removeConsecutiveCharacters(arr) {
 		}).join("");
 	});
 }
+
+function returnWhateverArrayItIs(str) {
+	return str.split("").filter((item, pos, arr) => {
+		return !pos || item !== arr[pos-1];
+	});
+}
