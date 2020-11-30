@@ -1,6 +1,6 @@
-var lastScrollTop = 0;
-var st = 0;
-$(window).scroll(function(event){
+var lastScrollTop;
+
+$(window).scroll(() => {
 	st = $(this).scrollTop();
 	if (st > lastScrollTop) {
 		addRule("::-webkit-scrollbar-thumb", "background: linear-gradient(transparent, blue)");
@@ -14,7 +14,6 @@ $(window).scroll(function(event){
 	lastScrollTop = st;
 });
 
-var running;
 setInterval(() => {
 	if (lastScrollTop = st || st == 0) {
 		addRule("::-webkit-scrollbar-thumb", "background: linear-gradient(transparent, blue, transparent)");
