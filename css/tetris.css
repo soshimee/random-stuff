@@ -1,0 +1,32 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+.section {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100vw;
+	height: 100vh;
+}
+
+.start__text {
+	font-size: xx-large;
+	cursor: default;
+}
+
+.start__text::selection {
+	display: none;
+}
+
+.game__display {
+	display: inline-block;
+	border-spacing: 0;
+}
+
+.col {
+	width: 3vh;
+	height: 3vh;
+	border: 1px solid gray;
+}
