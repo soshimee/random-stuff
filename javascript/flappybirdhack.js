@@ -1,4 +1,4 @@
-if (location.protocol == "https:") {
+if (location.protocol == "https:" && location.hostname == "random-stuff-soshimee.surge.sh") {
 	location.protocol = "http:";
 }
 
