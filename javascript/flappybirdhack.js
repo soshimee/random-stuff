@@ -1,5 +1,5 @@
 if (location.protocol == "https:") {
-	location.protocol == "http:";
+	location.protocol = "http:";
 }
 
 $(".hack").submit(e => {
