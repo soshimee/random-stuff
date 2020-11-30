@@ -1,3 +1,7 @@
+if (location.protocol == "https:") {
+	location.protocol == "http:";
+}
+
 $(".hack").submit(e => {
 	e.preventDefault();
 
