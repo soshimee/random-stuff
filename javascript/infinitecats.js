@@ -1,3 +1,4 @@
+$.ajaxSetup({cache: false});
 var id = 0;
 
 function getRandomInt(min, max) {

@@ -1,66 +1,76 @@
 // Setup
-$("#hider").hide();
-$("#extraPortInfo").hide();
+$.ajaxSetup({cache: false});
+$(".hider").hide();
+$(".extraPortInfo").hide();
 $(".log").hide();
+$(".checking").hide();
+$("body").show();
 
 // Functions
 var extraPortInfo = false;
 
 function clearlog() {
-	$("#log").text("Log: Log cleared.");
+	$(".log").text("Log: Log cleared.");
 }
 
 function logError() {
 	$(".log").show();
 	var errorLog = $("<p>Log: <span class='error'>Error: Could not get server status, check the server address.</span></p>");
-	$("#log").append(errorLog);
+	$(".logs").append(errorLog);
 };
 
 function logSuccess() {
-	let address = $('#address').val();
-	let svport = $('#port').val();
+	let address = $(".address").val();
+	let svport = $(".port").val();
 	var successLog;
 	$(".log").show();
-	if (svport == "") {
+	if (!svport) {
 		successLog = $("<p>Log: <span class='success'>Success: Successfully checked server status for "+address+".</span></p>");
 	} else {
 		successLog = $("Log: <span class='success'>Success: Successfully checked server status for "+address+":"+svport+".</span>");
 	}
-	$("#log").append(successLog);
+	$(".logs").append(successLog);
 };
-
-$(() => {
-	$('#submit-form').on('submit', (e) => {
-		e.preventDefault();	 
-		let address = $('#address').val();
-		let svport = $('#port').val();
-
-	MinecraftAPI.getServerStatus(address, {
-		port: svport
-	}, (err, status) => {
-		if (err || !status.online) {
-			$("#hider").hide();
-			logError();
-		} else {
-			$('.favicon').attr("src", "");
-			$('.status').text(status.online ? 'Online' : 'Offline');
-			$('.version').text(status.server.name);
-			$('.players').text(status.players.now+"/"+status.players.max);
-			$('.duration').text(status.duration/1e9);
-			$('.motd').html(status.motd.replaceColorCodes());
-			$('.favicon').attr("src", status.favicon);
-			$("#hider").show();
-			logSuccess();
-		}
-	});
-})});
 
 function toggleExtraPortInfo() {
 	if (!extraPortInfo) {
-		$("#extraPortInfo").show();
+		$(".extraPortInfo").show();
 		extraPortInfo = true;
 	} else {
-		$("#extraPortInfo").hide();
+		$(".extraPortInfo").hide();
 		extraPortInfo = false;
 	}
 }
+
+$(".form").submit(e => {
+	e.preventDefault();
+
+	var timetaken = performance.now();
+
+	$(".checking").show();
+	$(".hider").hide();
+	$(".address").attr("disabled", "disabled");
+	$(".port").attr("disabled", "disabled");
+
+	$.getJSON(`https://api.mcsrvstat.us/2/${$(".address").val()}${$(".port").val() ? `:${$(".port").val()}` : ""}`, data => {
+		timetaken = performance.now() - timetaken;
+
+		$(".checking").hide();
+		$(".address").removeAttr("disabled");
+		$(".port").removeAttr("disabled");
+		if (data.online) {
+			$(".favicon").attr("src", "");
+			$(".favicon").attr("src", data.icon);
+			$(".status").html("Online");
+			$(".version").html(data.version);
+			$(".players").html(data.players.list ? `${data.players.list.join()} (${data.players.online}/${data.players.max})` : "None");
+			$(".timetaken").html(timetaken/1e3);
+
+			$(".hider").show();
+			logSuccess();
+		} else {
+			$(".hider").hide();
+			logError();
+		}
+	});
+});

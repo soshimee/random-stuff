@@ -29,3 +29,13 @@ iframe {
 	height: 90%;
 	border: none;
 }
+
+.float__left {
+	float: left;
+}
+
+.library {
+	top: 0;
+	left: 0;
+	position: absolute;
+}

@@ -117,3 +117,17 @@ function inverseHex(arrStr) {
 		return val ? val : undefined;
 	}
 }
+
+function csslog() {
+	var args = arguments;
+	if (!(args.length%2)) {
+		var text = [];
+		var css = [];
+		for (i=0; i<args.length; i+=2) {
+			text.push(args[i]);
+			css.push(args[i+1]);
+		}
+		text = text.map(x => `%c${x}`).join("").split();
+		console.log.apply(null, text.concat(css));
+	}
+}
