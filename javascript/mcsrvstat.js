@@ -7,7 +7,7 @@ $(".checking").hide();
 $("body").show();
 
 // Functions
-var extraPortInfo = false;
+var extraPortInfo;
 
 function clearlog() {
 	$(".log").text("Log: Log cleared.");
