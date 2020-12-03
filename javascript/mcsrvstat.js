@@ -63,7 +63,14 @@ $(".form").submit(e => {
 			$(".favicon").attr("src", data.icon);
 			$(".status").html("Online");
 			$(".version").html(data.version);
-			$(".players").html(data.players.list ? `${data.players.list.join()} (${data.players.online}/${data.players.max})` : "None");
+			if (data.players.list) {
+				$(".players").html(`${data.players.list.join()} (${data.players.online}/${data.players.max})`);
+			} else if (data.players.online) {
+				$(".players").html(`${data.players.online}/${data.players.max}`);
+			} else {
+				$(".players").html("None");
+			}
+			$(".players").html();
 			$(".timetaken").html(timetaken/1e3);
 
 			$(".hider").show();
