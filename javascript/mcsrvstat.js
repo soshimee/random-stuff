@@ -65,7 +65,7 @@ $(".form").submit(e => {
 				$(".players").html("None");
 			}
 			$(".players").html();
-			$(".timetaken").html(timetaken/1e3);
+			$(".timetaken").html((timetaken/1e3).toFixed(2));
 
 			$(".hider").show();
 			logSuccess();
