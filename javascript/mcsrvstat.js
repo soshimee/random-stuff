@@ -25,21 +25,15 @@ function logSuccess() {
 	var successLog;
 	$(".log").show();
 	if (!svport) {
-		successLog = $("<p>Log: <span class='success'>Success: Successfully checked server status for "+address+".</span></p>");
+		successLog = $(`<p>Log: <span class='success'>Success: Successfully checked server status for ${address}.</span></p>`);
 	} else {
-		successLog = $("Log: <span class='success'>Success: Successfully checked server status for "+address+":"+svport+".</span>");
+		successLog = $(`Log: <span class='success'>Success: Successfully checked server status for ${address}:${svport}.</span>`);
 	}
 	$(".logs").append(successLog);
 };
 
 function toggleExtraPortInfo() {
-	if (!extraPortInfo) {
-		$(".extraPortInfo").show();
-		extraPortInfo = true;
-	} else {
-		$(".extraPortInfo").hide();
-		extraPortInfo = false;
-	}
+	extraPortInfo = !extraPortInfo;
 }
 
 $(".form").submit(e => {
@@ -64,7 +58,7 @@ $(".form").submit(e => {
 			$(".status").html("Online");
 			$(".version").html(data.version);
 			if (data.players.list) {
-				$(".players").html(`${data.players.list.join()} (${data.players.online}/${data.players.max})`);
+				$(".players").html(`${data.players.list.join()} (${data.players.list.length}/${data.players.max})`);
 			} else if (data.players.online) {
 				$(".players").html(`${data.players.online}/${data.players.max}`);
 			} else {
