@@ -48,6 +48,7 @@ $(".form").submit(e => {
 	$(".hider").hide(1000);
 	$(".address").attr("disabled", "disabled");
 	$(".port").attr("disabled", "disabled");
+	$(".check").attr("disabled", "disabled");
 
 	$.getJSON(`https://api.mcsrvstat.us/2/${$(".address").val()}${$(".port").val() ? `:${$(".port").val()}` : ""}`, data => {
 		timetaken = performance.now() - timetaken;
@@ -55,6 +56,7 @@ $(".form").submit(e => {
 		$(".checking").hide(1000);
 		$(".address").removeAttr("disabled");
 		$(".port").removeAttr("disabled");
+		$(".check").removeAttr("disabled");
 		if (data.online) {
 			$(".favicon").attr("src", "");
 			$(".favicon").attr("src", data.icon);
