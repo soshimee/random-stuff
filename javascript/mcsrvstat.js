@@ -7,33 +7,36 @@ $(".checking").hide();
 $("body").show();
 
 // Functions
-var extraPortInfo;
+let extraPortInfo = false;
 
 function clearlog() {
-	$(".log").text("Log: Log cleared.");
+	$(".logs").text("Log: Log cleared.");
 }
 
 function logError() {
-	$(".log").show();
+	$(".log").show(1000);
 	var errorLog = $("<p>Log: <span class='error'>Error: Could not get server status, check the server address.</span></p>");
-	$(".logs").append(errorLog);
+	$(".logs").prepend(errorLog);
+	errorLog.hide().show(1000);
 };
 
 function logSuccess() {
 	let address = $(".address").val();
 	let svport = $(".port").val();
 	var successLog;
-	$(".log").show();
+	$(".log").show(1000);
 	if (!svport) {
 		successLog = $(`<p>Log: <span class='success'>Success: Successfully checked server status for ${address}.</span></p>`);
 	} else {
 		successLog = $(`Log: <span class='success'>Success: Successfully checked server status for ${address}:${svport}.</span>`);
 	}
-	$(".logs").append(successLog);
+	$(".logs").prepend(successLog);
+	successLog.hide().show(1000);
 };
 
 function toggleExtraPortInfo() {
 	extraPortInfo = !extraPortInfo;
+	extraPortInfo ? $(".extraPortInfo").show(1000) : $(".extraPortInfo").hide(1000);
 }
 
 $(".form").submit(e => {
@@ -41,15 +44,15 @@ $(".form").submit(e => {
 
 	var timetaken = performance.now();
 
-	$(".checking").show();
-	$(".hider").hide();
+	$(".checking").show(1000);
+	$(".hider").hide(1000);
 	$(".address").attr("disabled", "disabled");
 	$(".port").attr("disabled", "disabled");
 
 	$.getJSON(`https://api.mcsrvstat.us/2/${$(".address").val()}${$(".port").val() ? `:${$(".port").val()}` : ""}`, data => {
 		timetaken = performance.now() - timetaken;
 
-		$(".checking").hide();
+		$(".checking").hide(1000);
 		$(".address").removeAttr("disabled");
 		$(".port").removeAttr("disabled");
 		if (data.online) {
@@ -67,10 +70,10 @@ $(".form").submit(e => {
 			$(".players").html();
 			$(".timetaken").html((timetaken/1e3).toFixed(2));
 
-			$(".hider").show();
+			$(".hider").show(1000);
 			logSuccess();
 		} else {
-			$(".hider").hide();
+			$(".hider").hide(1000);
 			logError();
 		}
 	});
