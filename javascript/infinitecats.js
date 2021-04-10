@@ -29,11 +29,7 @@ function reqappendCat() {
 	}
 }
 
-var reqAppendCatInterval = setInterval(() => {
-	reqappendCat();
-}, 100);
-
-var imageSizeInterval = setInterval(() => {
+function resizeImages() {
 	if (innerWidth > innerHeight) {
 		$(".style__portrait").remove();
 		if (!$(".style__landscape").length) {
@@ -45,7 +41,7 @@ var imageSizeInterval = setInterval(() => {
 		}
 	} else {
 		$(".style__landscape").remove();
-		if (!	$(".style__portrait").length) {
+		if (!$(".style__portrait").length) {
 			$("head").append(`<style class="style__portrait">
 				.cat__image {
 					width: 50vw;
@@ -53,4 +49,12 @@ var imageSizeInterval = setInterval(() => {
 			</style>`);
 		}
 	}
-}, 100);
+}
+
+for (let i = 0; i < 10; i++) {
+	reqappendCat();
+}
+resizeImages();
+
+onscroll = reqappendCat;
+onresize = resizeImages;
